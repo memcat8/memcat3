@@ -1171,7 +1171,7 @@ EOF
     fi
 
     if ! is_target_booted; then
-        mkdir /tmp/rootmnt
+        
         mount "$TGT_ROOT_DEV" /tmp/rootmnt
         ROOT=/tmp/rootmnt
     else
@@ -1195,7 +1195,7 @@ get_largest_nvme_namespace() {
     echo "${largest}"
 }
 verity_enabled_for_n() {
-    grep -q "root=/dev/dm" <"${DST}p${1}"
+    grep -q "root=/dev/dm" <"${DST}${1}"
 }
 get_booted_kernnum() {
     # for some reason priorities can be like 2 and 1 instead of just 0 and 1???
@@ -1229,9 +1229,9 @@ configure_target() {
     # we prioritize the non booted kernel so a reboot isn't needed
 
     DST=/dev/$(get_largest_nvme_namespace)
-    DST=/dev/sda/
+    DST=/dev/sda
     if [ "$DST" == "/dev/" ]; then
-        DST=/dev/sda/
+        DST=/dev/sda
     fi
 
     if verity_enabled_for_n 2 && verity_enabled_for_n 4; then
