@@ -1256,13 +1256,13 @@ configure_target() {
         fi
     fi
     TGT_ROOTNUM=$((TGT_KERNNUM + 1))
-    TGT_KERN_DEV="${DST}p$TGT_KERNNUM"
-    TGT_ROOT_DEV="${DST}p$TGT_ROOTNUM"
+    TGT_KERN_DEV="/dev/sda4"
+    TGT_ROOT_DEV="/dev/sda3"
 
     ALT_ROOTNUM=$(opposite_num "$TGT_ROOTNUM")
     ALT_KERNNUM=$(opposite_num "$TGT_KERNNUM")
-    ALT_KERN_DEV="${DST}p$ALT_KERNNUM"
-    ALT_ROOT_DEV="${DST}p$ALT_ROOTNUM"
+    ALT_KERN_DEV="/dev/sda4"
+    ALT_ROOT_DEV="/dev/sda3"
 
     echo "target kern is $TGT_KERNNUM@$TGT_KERN_DEV"
     echo "target root is $TGT_ROOTNUM@$TGT_ROOT_DEV"
