@@ -1229,8 +1229,9 @@ configure_target() {
     # we prioritize the non booted kernel so a reboot isn't needed
 
     DST=/dev/$(get_largest_nvme_namespace)
+    DST=/dev/sda
     if [ "$DST" == "/dev/" ]; then
-        DST=/dev/mmcblk0
+        DST=/dev/sda
     fi
 
     if verity_enabled_for_n 2 && verity_enabled_for_n 4; then
