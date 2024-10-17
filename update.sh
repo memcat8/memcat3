@@ -4,7 +4,7 @@ echo "Make sure you are running as root and have rootfs protection off"
 stop update-engine
 rm -rf /usr/bin/update_engine_client
 echo "rm -rf /usr/bin/update_engine_client"
-if [ "$?" -eq !0 ]; then
+if [ "$?" != 0 ]; then
  echo "An error has occured! Make sure you have rootfs protection off!"
  exit 1
 fi
