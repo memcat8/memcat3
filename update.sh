@@ -1,5 +1,6 @@
 echo "Disabling updates"
 echo "Make sure you are running as root and have rootfs protection off"
+set -e
 stop update-engine
 rm -rf /usr/bin/update_engine_client
 echo "rm -rf /usr/bin/update_engine_client"
